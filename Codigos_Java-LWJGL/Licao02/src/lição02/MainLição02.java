@@ -5,9 +5,6 @@
  */
 package lição02;
 
-import java.awt.Color;
-import static java.awt.Color.CYAN;
-import static java.awt.Color.WHITE;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.lwjgl.LWJGLException;
@@ -39,7 +36,7 @@ public class MainLição02 {
     public static final int DISPLAY_HEIGHT = 480;
     public static final int DISPLAY_WIDTH = 640;
     public static final Logger LOGGER = Logger.getLogger(MainLição02.class.getName());
-    public Color gColorMode = CYAN;
+    public int gColorMode = 0; //0 para CYAN e 1 para MULTI
     public float gProjectionScale = 1.f;
     
     public static void main(String[] args) {
@@ -107,10 +104,10 @@ public class MainLição02 {
         if(Keyboard.isKeyDown(Keyboard.KEY_Q))
         {
             //Mudando a cor
-            if(gColorMode == CYAN)
-                gColorMode = WHITE;
+            if(gColorMode == 0) //CYAN
+                gColorMode = 1; //MULTI
             else
-                gColorMode = CYAN;
+                gColorMode = 0; //CYAN
         }
         //Se pressionar a letra E
         else if (Keyboard.isKeyDown(Keyboard.KEY_E))
@@ -142,7 +139,7 @@ public class MainLição02 {
         glTranslatef(DISPLAY_WIDTH / 2.f, DISPLAY_HEIGHT / 2.f, 0.f);
         
         //Render quad
-        if(gColorMode == CYAN)
+        if(gColorMode == 0) //CYAN
         {
             //Solid Cyan
             glBegin(GL_QUADS);
