@@ -109,19 +109,19 @@ public class MainLição04 {
 
     public void processKeyboard() {
         //Se for cliclado w/a/s/d, vai mudar a visão dos quadrados
-        if(Keyboard.isKeyDown(Keyboard.KEY_W))
+        if(Keyboard.isKeyDown(Keyboard.KEY_S))
         {
             gCameraY -= 16.f;
         }
-        else if(Keyboard.isKeyDown(Keyboard.KEY_S))
+        else if(Keyboard.isKeyDown(Keyboard.KEY_W))
         {
             gCameraY += 16.f;
         }
-        else if(Keyboard.isKeyDown(Keyboard.KEY_A))
+        else if(Keyboard.isKeyDown(Keyboard.KEY_D))
         {
             gCameraX -= 16.f;
         }
-        else if(Keyboard.isKeyDown(Keyboard.KEY_D))
+        else if(Keyboard.isKeyDown(Keyboard.KEY_A))
         {
             gCameraX += 16.f;
         }
