@@ -42,11 +42,13 @@ public class LTexture {
         mTextureHeight = height;
 
         //Generate texture ID
+        //Está diferente em C++. Em java, ele não aceita argumentos e apenas retorna.
         mTextureID = glGenTextures();
 
         //Bind texture ID
         glBindTexture(GL_TEXTURE_2D, mTextureID);
-
+        
+        //Essas linhas foram criadas segundo um tutorial extra.
         //Generate texture
         IntBuffer iBuffer = BufferUtils.createIntBuffer(width*height);
         for (int i = 0; i < pixels.length; i++)
@@ -54,8 +56,10 @@ public class LTexture {
             iBuffer.put(pixels[i]);
         }
         iBuffer.position(0);
+        //Na próxima linha, iBuffer é uma conversão de pixels, que no código em C++ é um ponteiro.
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, iBuffer);
-
+        //Fim das linhas do tutorial extra.
+        
         //Set texture parameters
         glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
         glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
