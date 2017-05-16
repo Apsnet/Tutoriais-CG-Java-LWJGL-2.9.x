@@ -138,6 +138,7 @@ public class MainLição05 {
         }
 
         //Load texture
+        //Quando ocorre essa chamada, há uma exceção.
         if(!gCheckerBoardTexture.loadTextureFromPixels32(checkerBoard, CHECKERBOARD_WIDTH, CHECKERBOARD_HEIGHT))
         {
             System.out.println( "Unable to load checkerboard texture!" );
